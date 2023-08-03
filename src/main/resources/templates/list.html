@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>상품목록</h1>
+<table border>
+    <tr><td>Id</td><td>Name</td><td>ETC</td></tr>
+<!--    list에 있는 데이터가 하나씩 one이라는 변수에 들어감-->
+    <tr th:each="one:${list}">
+        <td th:text="${one.product_id}"></td>
+        <td th:text="${one.product_name}"></td>
+        <td><a th:href="@{'/update/'+${one.product_id}}">수정</a>|<a th:href="@{'/delete/'+${one.product_id}}">삭제</a></td></tr>
+</table>
+</body>
+</html>
